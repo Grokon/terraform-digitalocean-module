@@ -21,9 +21,9 @@ resource "digitalocean_droplet" "droplet" {
   monitoring        = var.droplet_monitoring
   ipv6              = var.droplet_ipv6
   vpc_uuid          = var.droplet_vpc_uuid != "" ? var.droplet_vpc_uuid : data.digitalocean_vpc.vpc.id
-  ssh_keys          = length(var.droplet_ssh_keys) != 0 ? var.droplet_ssh_keys : data.digitalocean_ssh_keys.keys.ssh_keys.*.id
+  ssh_keys          = length(var.droplet_ssh_keys) > 0 ? var.droplet_ssh_keys : data.digitalocean_ssh_keys.keys.ssh_keys.*.id
   resize_disk       = var.droplet_resize_disk
-  tags              = length(var.droplet_tags) != 0 ? var.droplet_tags : compact([var.project_name, var.environment, var.region])
+  tags              = length(var.droplet_tags) > 0 ? var.droplet_tags : compact([var.project_name, var.environment, var.region])
   graceful_shutdown = var.droplet_graceful_shutdown
 }
 
