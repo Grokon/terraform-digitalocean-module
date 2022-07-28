@@ -127,11 +127,11 @@ variable "block_storage_filesystem_label" {
 }
 
 
-# variable "floating_ip" {
-#   description = "Floating IP to assign to the droplet."
-#   type        = bool
-#   default     = false
-# }
+variable "reserved_ip" {
+  description = "Reserved IP to assign to the droplet."
+  type        = bool
+  default     = false
+}
 
 # load balancer
 variable "loadbalancer" {

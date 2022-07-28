@@ -72,19 +72,19 @@ resource "digitalocean_volume_attachment" "volume_attachment" {
 }
 
 
-# # Create Floating IP:
-# resource "digitalocean_floating_ip" "floating_ip" {
-#   count  = var.floating_ip == true && var.droplet_count > 0 ? coalesce(var.floating_ip_count, var.droplet_count) : 0
-#   region = var.region
-# }
-# # Atach Floating IP to droplets:
-# resource "digitalocean_floating_ip_assignment" "floating_ip_assignment" {
-#   depends_on = [digitalocean_droplet.droplet]
-#   count      = var.floating_ip == true && var.floating_ip_assign == true && var.droplet_count > 0 ? coalesce(var.floating_ip_count, var.droplet_count) : 0
+# Create Reserved IP:
+resource "digitalocean_reserved_ip" "reserved_ip" {
+  count  = var.reserved_ip == true && var.droplet_count > 0 ? coalesce(var.reserved_ip_count, var.droplet_count) : 0
+  region = var.region
+}
+# Atach reserved IP to droplets:
+resource "digitalocean_reserved_ip_assignment" "reserved_ip_assignment" {
+  depends_on = [digitalocean_droplet.droplet]
+  count      = var.reserved_ip == true && var.reserved_ip_assign == true && var.droplet_count > 0 ? coalesce(var.reserved_ip_count, var.droplet_count) : 0
 
-#   ip_address = element(digitalocean_floating_ip.floating_ip.*.id, count.index)
-#   droplet_id = element(digitalocean_droplet.droplet.*.id, count.index)
-# }
+  ip_address = element(digitalocean_freserved_ip.reserved_ip.*.id, count.index)
+  droplet_id = element(digitalocean_droplet.droplet.*.id, count.index)
+}
 
 
 # Create a load balancer:
