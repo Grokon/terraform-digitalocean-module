@@ -82,7 +82,7 @@ resource "digitalocean_reserved_ip_assignment" "reserved_ip_assignment" {
   depends_on = [digitalocean_droplet.droplet]
   count      = var.reserved_ip == true && var.reserved_ip_assign == true && var.droplet_count > 0 ? coalesce(var.reserved_ip_count, var.droplet_count) : 0
 
-  ip_address = element(digitalocean_freserved_ip.reserved_ip.*.id, count.index)
+  ip_address = element(digitalocean_reserved_ip.reserved_ip.*.id, count.index)
   droplet_id = element(digitalocean_droplet.droplet.*.id, count.index)
 }
 

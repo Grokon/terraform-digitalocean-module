@@ -126,7 +126,17 @@ variable "block_storage_filesystem_label" {
   default     = "data"
 }
 
+variable "reserved_ip_count" {
+  description = "Reserved IP count"
+  type        = number
+  default     = 0
+}
 
+variable "reserved_ip_assign" {
+  description = "Reserved IP assigned"
+  type        = bool
+  default     = false
+}
 variable "reserved_ip" {
   description = "Reserved IP to assign to the droplet."
   type        = bool
@@ -160,6 +170,7 @@ variable "loadbalancer_algorithm" {
 
 variable "loadbalancer_forwarding_rule" {
   description = "List of forwarding_rule maps to apply to the loadbalancer."
+  type        = map(any)
   default = {
     entry_protocol  = "http"
     entry_port      = 80
@@ -171,6 +182,7 @@ variable "loadbalancer_forwarding_rule" {
 
 variable "loadbalancer_healthcheck" {
   description = "A healthcheck block to be assigned to the Load Balancer. Only 1 healthcheck is allowed."
+  type        = map(any)
   default = {
     protocol                 = "http"
     port                     = 80
@@ -183,6 +195,7 @@ variable "loadbalancer_healthcheck" {
 }
 variable "loadbalancer_sticky_sessions" {
   description = "A sticky_sessions block to be assigned to the Load Balancer. Only 1 sticky_sessions block is allowed."
+  type        = map(any)
   default = {
     type               = "none"
     cookie_name        = null
