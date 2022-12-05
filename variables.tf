@@ -71,6 +71,12 @@ variable "droplet_tags" {
   default     = []
 }
 
+variable "droplet_user_data" {
+  description = "User data to pass to the droplet."
+  type        = string
+  default     = ""
+}
+
 variable "droplet_graceful_shutdown" {
   description = "Graceful shutdown of the droplet. If set to true, the droplet will be shut down gracefully. Otherwise, it will be terminated."
   type        = bool

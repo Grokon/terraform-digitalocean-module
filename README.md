@@ -8,8 +8,8 @@ Info wil be added latter.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2 |
-| <a name="requirement_digitalocean"></a> [digitalocean](#requirement\_digitalocean) | ~> 2.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
+| <a name="requirement_digitalocean"></a> [digitalocean](#requirement\_digitalocean) | ~> 2.25.2 |
 
 ## Providers
 
@@ -56,6 +56,7 @@ No modules.
 | <a name="input_droplet_size"></a> [droplet\_size](#input\_droplet\_size) | Droplet size | `string` | `"s-1vcpu-1gb"` | no |
 | <a name="input_droplet_ssh_keys"></a> [droplet\_ssh\_keys](#input\_droplet\_ssh\_keys) | List of SSH IDs or fingerprints to enable. They must already exist in your DO account. | `list(string)` | `[]` | no |
 | <a name="input_droplet_tags"></a> [droplet\_tags](#input\_droplet\_tags) | Tags to set on the droplet. | `list(string)` | `[]` | no |
+| <a name="input_droplet_user_data"></a> [droplet\_user\_data](#input\_droplet\_user\_data) | User data to pass to the droplet. | `string` | `""` | no |
 | <a name="input_droplet_vpc_uuid"></a> [droplet\_vpc\_uuid](#input\_droplet\_vpc\_uuid) | VPC UUID to assign the droplet to. | `string` | `""` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment to be created. | `string` | `"Development"` | no |
 | <a name="input_firewall_inbound_rules"></a> [firewall\_inbound\_rules](#input\_firewall\_inbound\_rules) | Inbound firewall rules. | <pre>list(object({<br>    protocol         = string<br>    port_range       = string<br>    source_addresses = list(string)<br>  }))</pre> | `[]` | no |
