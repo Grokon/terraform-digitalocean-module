@@ -134,6 +134,10 @@ resource "digitalocean_spaces_bucket" "space" {
   region        = length(var.space_region) > count.index ? element(var.space_region, count.index) : var.region
   acl           = var.space_acl
   force_destroy = var.space_force_destroy
+
+  versioning {
+    enabled = true
+  }
 }
 
 
