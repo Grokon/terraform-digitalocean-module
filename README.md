@@ -15,7 +15,7 @@ Info wil be added latter.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.23.0 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.25.2 |
 
 ## Modules
 
@@ -65,7 +65,7 @@ No modules.
 | <a name="input_loadbalancer_algorithm"></a> [loadbalancer\_algorithm](#input\_loadbalancer\_algorithm) | Algorithm to use for the load balancer. | `string` | `"round_robin"` | no |
 | <a name="input_loadbalancer_enable_backend_keepalive"></a> [loadbalancer\_enable\_backend\_keepalive](#input\_loadbalancer\_enable\_backend\_keepalive) | Enable backend keepalive for the load balancer. | `bool` | `false` | no |
 | <a name="input_loadbalancer_enable_proxy_protocol"></a> [loadbalancer\_enable\_proxy\_protocol](#input\_loadbalancer\_enable\_proxy\_protocol) | Enable proxy protocol for the load balancer. | `bool` | `false` | no |
-| <a name="input_loadbalancer_forwarding_rule"></a> [loadbalancer\_forwarding\_rule](#input\_loadbalancer\_forwarding\_rule) | List of forwarding\_rule maps to apply to the loadbalancer. | `map(any)` | <pre>{<br>  "entry_port": 80,<br>  "entry_protocol": "http",<br>  "target_port": 80,<br>  "target_protocol": "http",<br>  "tls_passthrough": false<br>}</pre> | no |
+| <a name="input_loadbalancer_forwarding_rule"></a> [loadbalancer\_forwarding\_rule](#input\_loadbalancer\_forwarding\_rule) | List of forwarding\_rule maps to apply to the loadbalancer. | `map(any)` | <pre>{<br>  "entry_port": 443,<br>  "entry_protocol": "https",<br>  "target_port": 443,<br>  "target_protocol": "https",<br>  "tls_passthrough": true<br>}</pre> | no |
 | <a name="input_loadbalancer_healthcheck"></a> [loadbalancer\_healthcheck](#input\_loadbalancer\_healthcheck) | A healthcheck block to be assigned to the Load Balancer. Only 1 healthcheck is allowed. | `map(any)` | <pre>{<br>  "check_interval_seconds": 10,<br>  "healthy_threshold": 5,<br>  "path": "/",<br>  "port": 80,<br>  "protocol": "http",<br>  "response_timeout_seconds": 5,<br>  "unhealthy_threshold": 3<br>}</pre> | no |
 | <a name="input_loadbalancer_name"></a> [loadbalancer\_name](#input\_loadbalancer\_name) | Name of the load balancer to create. | `string` | `""` | no |
 | <a name="input_loadbalancer_redirect_http_to_https"></a> [loadbalancer\_redirect\_http\_to\_https](#input\_loadbalancer\_redirect\_http\_to\_https) | Redirect HTTP to HTTPS for the load balancer. | `bool` | `false` | no |

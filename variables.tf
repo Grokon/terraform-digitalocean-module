@@ -178,11 +178,11 @@ variable "loadbalancer_forwarding_rule" {
   description = "List of forwarding_rule maps to apply to the loadbalancer."
   type        = map(any)
   default = {
-    entry_protocol  = "http"
-    entry_port      = 80
-    target_protocol = "http"
-    target_port     = 80
-    tls_passthrough = false
+    entry_protocol  = "https"
+    entry_port      = 443
+    target_protocol = "https"
+    target_port     = 443
+    tls_passthrough = true
   }
 }
 
